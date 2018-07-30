@@ -1,38 +1,67 @@
+! font menu (ctl-rightclick)
+UXTerm.fontMenu.fontdefault.Label: Normal
+UXTerm.fontMenu.font1.Label: Illegible
+UXTerm.fontMenu.font2.Label: Smallest
+UXTerm.fontMenu.font3.Label: Small
+UXTerm.fontMenu.font4.Label: Large
+UXTerm.fontMenu.font5.Label: Huge
+UXTerm.fontMenu.font6.Label: Bold
 
-! special
-*.foreground:   #c7c5ce
-*.background:   #121016
-*.cursorColor:  #c7c5ce
+! stop eating ALT-
+UXTerm*eightBitInput: false
 
-! black
-*.color0:       #1c1a23
-*.color8:       #f587c6
+! truetype plz
+UXTerm.vt100.renderFont: true
+UXTerm*faceName: Terminus
+UXTerm*faceSize: 8
 
-! red
-*.color1:       #25232d
-*.color9:       #54c7e1
+! does this do anything? dunno
+Xft.antialias: true
+Xft.autohint: false
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+Xft.dpi: 96
+Xft.lcdfilter: lcddefault
+Xft.embolden: false
+Xft.render: true
 
-! green
-*.color2:       #373341
-*.color10:      #b59ef5
+! bitmap fonts
+UXTerm.vt100.utf8Fonts.font: -efont-fixed-medium-r-normal--14-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.font1: nil2
+UXTerm.vt100.utf8Fonts.font2: -efont-fixed-medium-r-normal--10-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.font3: -efont-fixed-medium-r-normal--12-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.font4: -efont-fixed-medium-r-normal--16-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.font5: -efont-fixed-medium-r-normal--24-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.font6: -efont-fixed-bold-r-normal--16-*-*-*-c-*-iso10646-1
+UXTerm.vt100.utf8Fonts.boldFont: -efont-fixed-bold-r-normal--14-*-*-*-c-*-iso10646-1
 
-! yellow
-*.color3:       #4e4a5c
-*.color11:      #d4c8f9
+! word selection
+UXTerm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48
 
-! blue
-*.color4:       #6c677d
-*.color12:      #81dff7
+! termtype
+UXTerm*termName: xterm-256color
 
-! magenta
-*.color5:       #8e8a9c
-*.color13:      #d8cff7
-
-! cyan
-*.color6:       #b6b3bf
-*.color14:      #f9b1d7
-
-! white
-*.color7:       #e3e2e6
-*.color15:      #a896dc
+! fix colors
+UXTerm*background: black
+UXTerm*foreground: green
+UXTerm*color0: rgb:00/00/00
+UXTerm*color1: rgb:a8/00/00
+UXTerm*color2: rgb:00/a8/00
+UXTerm*color3: rgb:a8/54/00
+UXTerm*color4: rgb:00/00/a8
+UXTerm*color5: rgb:a8/00/a8
+UXTerm*color6: rgb:00/a8/a8
+UXTerm*color7: rgb:a8/a8/a8
+UXTerm*color8: rgb:54/54/54
+UXTerm*color9: rgb:fc/54/54
+UXTerm*color10: rgb:54/fc/54
+UXTerm*color11: rgb:fc/fc/54
+UXTerm*color12: rgb:54/54/fc
+UXTerm*color13: rgb:fc/54/fc
+UXTerm*color14: rgb:54/fc/fc
+UXTerm*color15: rgb:fc/fc/fc
+UXTerm*boldMode: false
+UXTerm*colorBDMode: true
+UXTerm*colorBD: rgb:fc/fc/fc
 
