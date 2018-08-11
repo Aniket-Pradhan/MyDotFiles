@@ -16,7 +16,7 @@ set $mod Mod1
 font pango:monospace 8
 
 # Set the background.
-exec sh ~/.fehbg
+exec sh ~/.setBack
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -137,16 +137,18 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 
 # Windows Borders
 
 for_window [class="^.*"] border pixel 0
 for_window [class="UXTerm"] border pixel 5
-gaps inner 15
+
+gaps inner 15 
 gaps outer 15
-smart_gaps on
-smart_borders on
+
+#smart_gaps on
+#smart_borders on
 
 client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
 client.focused_inactive #ffffff #ffffff #ffffff #ffffff   #ffffff
@@ -185,6 +187,8 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
+bar{
+	status_command i3blocks 
+	position top
 }
+

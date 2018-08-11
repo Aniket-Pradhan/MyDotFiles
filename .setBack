@@ -1,0 +1,17 @@
+#!/bin/bash
+
+search_dir=~/Pictures/Wallpapers/
+
+declare -a files
+
+for entry in "$search_dir"*
+do
+	files+=($entry)
+done
+
+len=${#files[@]}
+
+random=$(($RANDOM%len))
+
+feh --bg-scale ${files[$random]}
+
