@@ -147,6 +147,12 @@ for_window [class="UXTerm"] border pixel 5
 gaps inner 15 
 gaps outer 15
 
+#workspace 1 gaps inner 0
+#workspace 1 gaps outer 0
+
+#for_window [class="UXTerm"] set gaps outer 0
+#for_window [class="UXTerm"] set gaps inner 0
+
 #smart_gaps on
 #smart_borders on
 
@@ -183,10 +189,14 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+
 bar{
 	status_command i3blocks 
 	position top
