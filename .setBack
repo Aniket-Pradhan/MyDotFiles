@@ -14,4 +14,4 @@ len=${#files[@]}
 random=$(($RANDOM%len))
 
 feh --bg-scale ${files[$random]}
-
+wal -i ${files[$random]} -n -q
