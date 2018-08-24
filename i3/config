@@ -33,7 +33,7 @@ exec sh ~/.setBack
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal -b 15
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -142,7 +142,7 @@ bindsym $mod+Shift+e exit
 # Windows Borders
 
 for_window [class="^.*"] border pixel 0
-for_window [class="UXTerm"] border pixel 5
+#for_window [class="UXTerm"] border pixel 5
 
 gaps inner 15 
 gaps outer 15
@@ -192,6 +192,26 @@ mode "resize" {
 bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 bindsym $mod+r mode "resize"
+
+# move floating windows with keys
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
