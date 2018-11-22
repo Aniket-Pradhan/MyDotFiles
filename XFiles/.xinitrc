@@ -56,7 +56,8 @@ xbindkeys
 #(sleep 1 && xcompmgr) &
 #devilspie -a &
 
-exec i3
+exec startdde
+#exec i3 -c ~/.i3/config
 
 twm &
 xclock -geometry 50x50-1+1 &

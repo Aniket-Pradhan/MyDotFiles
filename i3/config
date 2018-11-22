@@ -33,7 +33,7 @@ exec sh ~/.setBack
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -b 15
+bindsym $mod+Return exec uxterm -b 15
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,16 +144,19 @@ bindsym $mod+Shift+e exit
 for_window [class="^.*"] border pixel 0
 #for_window [class="UXTerm"] border pixel 5
 
+#for_window [class="^.*"] set gaps outer 15
+#for_window [class="^.*"] set gaps inner 15
+
+#for_window [class="UXTerm"] set gaps outer 0
+#for_window [class="UXTerm"] set gaps inner 0
+
 gaps inner 15 
 gaps outer 15
 
 #workspace 1 gaps inner 0
 #workspace 1 gaps outer 0
 
-#for_window [class="UXTerm"] set gaps outer 0
-#for_window [class="UXTerm"] set gaps inner 0
-
-#smart_gaps on
+smart_gaps on
 #smart_borders on
 
 client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
@@ -212,6 +215,8 @@ mode "move" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# The side buttons move the window around
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

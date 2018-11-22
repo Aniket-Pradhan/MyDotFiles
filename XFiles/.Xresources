@@ -15,6 +15,9 @@ UXTerm.vt100.renderFont: true
 UXTerm*faceName: Terminus
 UXTerm*faceSize: 8
 
+UXTerm*background:         black
+UXTerm*foreground:         white
+
 UXTerm.vt100.translations: #override \n\
   Ctrl <Key> minus: smaller-vt-font() \n\
   Ctrl <Key> plus: larger-vt-font()
@@ -48,42 +51,40 @@ UXTerm*termName: xterm-256color
 
 ! fix colors
 
-! special
-*.foreground:   #c8c7de
-*.background:   #0f0d21
-*.cursorColor:  #c8c7de
+*.foreground:	#FFFFFF
+*.background:	#FFFFFF
 
 ! black
-*.color0:       #181631
-*.color8:       #a8aa5d
+*.color0:       #272822
+*.color8:       #75715e
 
 ! red
-*.color1:       #211e3f
-*.color9:       #40c9dc
+*.color1:       #f92672
+*.color9:       #f92672
 
 ! green
-*.color2:       #312e5a
-*.color10:      #44b1c1
+*.color2:       #a6e22e
+*.color10:      #a6e22e
 
 ! yellow
-*.color3:       #48437f
-*.color11:      #aea9f1
+*.color3:       #f4bf75
+*.color11:      #f4bf75
 
 ! blue
-*.color4:       #65619e
-*.color12:      #66d3e4
+*.color4:       #66d9ef
+*.color12:      #66d9ef
 
 ! magenta
-*.color5:       #8986b8
-*.color13:      #b0b44d
+*.color5:       #ae81ff
+*.color13:      #ae81ff
 
 ! cyan
-*.color6:       #b3b1d2
-*.color14:      #64c295
+*.color6:       #a1efe4
+*.color14:      #a1efe4
 
 ! white
-*.color7:       #e2e1ed
-*.color15:      #4ee2a2
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
 
 !UXTerm*background: black
 !UXTerm*foreground: green
@@ -108,3 +109,6 @@ UXTerm*termName: xterm-256color
 !UXTerm*colorBD: rgb:fc/fc/fc
 
 UXTerm.internalBorder: 20
+
+UXTerm.vt100.selectToClipboard:true
+

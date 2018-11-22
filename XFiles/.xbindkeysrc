@@ -34,8 +34,8 @@
 # Uncomment the lines above if you want to pay attention to them.
 
 #keystate_numlock = enable
-#keystate_capslock = enable
-#keystate_scrolllock= enable
+keystate_capslock = enable
+keystate_scrolllock= enable
 
 # Examples of commands:
 
@@ -55,16 +55,24 @@
    XF86MonBrightnessDown
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+"pactl set-sink-volume @DEFAULT_SINK@ +1000; exec pkill  -RTMIN+10 i3blocks"
    XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+"pactl set-sink-volume @DEFAULT_SINK@ -1000; exec pkill  -RTMIN+10 i3blocks"
    XF86AudioLowerVolume
 
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle; exec pkill  -RTMIN+10 i3blocks"
    XF86AudioMute
+
+# Mouse Buttons
+"i3-msg 'workspace prev'"
+m:0x0 + b:8
+
+# Mouse Buttons
+"i3-msg 'workspace next'"
+m:0x0 + b:9
 
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
