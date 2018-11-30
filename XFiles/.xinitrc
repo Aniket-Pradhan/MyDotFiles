@@ -52,6 +52,9 @@ fi
 # set the key bindings
 xbindkeys
 
+# setup xss-lock 
+--no-startup-id xss-lock -- ~/.i3/lock
+
 #set transparent terminals
 #(sleep 1 && xcompmgr) &
 #devilspie -a &
