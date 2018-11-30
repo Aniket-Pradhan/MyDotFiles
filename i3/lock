@@ -1,0 +1,23 @@
+#!/bin/sh
+
+search_dir=/home/major/Pictures/Wallpapers/
+
+declare -a files
+
+for entry in "$search_dir"*
+do
+	if [[ $entry == *"png" ]];
+		then
+		files+=($entry)
+	fi
+done
+
+len=${#files[@]}
+
+random=$(($RANDOM%len))
+
+set -e
+xset s off dpms 0 10 0
+i3lock -i ${files[$random]} --ignore-empty-password --show-failed-attempts --nofork
+xset s off -dpms
+
