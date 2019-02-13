@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+#sourced from https://serverfault.com/a/812653
+
+spawn /opt/fortinet/forticlientsslvpn/forticlientsslvpn_cli --server vpn.iiitd.edu.in:10443 --vpnuser aniket17133
+expect "Password for VPN:"
+send "<mypassword>\r"
+expect "*(Y/N)"
+send "Y\r"
+interact
