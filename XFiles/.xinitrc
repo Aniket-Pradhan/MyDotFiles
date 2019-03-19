@@ -59,8 +59,10 @@ xbindkeys
 #(sleep 1 && xcompmgr) &
 #devilspie -a &
 
-exec startdde
-#exec i3 -c ~/.i3/config
+source /etc/X11/xinit/xinitrc.d/*
+
+#exec startdde
+exec i3 -c ~/.i3/config
 
 twm &
 xclock -geometry 50x50-1+1 &

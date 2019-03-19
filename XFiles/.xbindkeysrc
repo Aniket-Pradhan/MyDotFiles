@@ -29,14 +29,15 @@
 
 
 
-keystate_numlock = enable
-keystate_scrolllock = enable
-keystate_capslock = enable
+#keystate_numlock = enable
+#keystate_scrolllock = enable
+#keystate_capslock = enable
 
 
 
-"xbindkeys_show"
-   control+shift + q
+"rofi -show run"
+    m:0x50 + c:36
+    Mod2+Mod4 + Return 
 
 # specify a mouse button
 "xterm"
@@ -61,6 +62,22 @@ keystate_capslock = enable
 # Mute volume
 "pactl set-sink-mute @DEFAULT_SINK@ toggle; exec pkill  -RTMIN+10 i3blocks"
    XF86AudioMute
+
+# Play/Pause
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+   XF86AudioPlay
+
+# Next
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+   XF86AudioNext
+
+# Previous
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+   XF86AudioPrev
+
+# Stop
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+   XF86AudioStop
 
 # Mouse Buttons
 "i3-msg 'workspace prev'"
