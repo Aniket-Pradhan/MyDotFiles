@@ -12,8 +12,9 @@ UXTerm*eightBitInput: false
 
 ! truetype plz
 UXTerm.vt100.renderFont: true
-UXTerm*faceName: Terminus
-UXTerm*faceSize: 8
+!UXTerm*faceName: Terminus
+UXTerm*faceName: Hack
+UXTerm*faceSize: 9
 
 UXTerm*background:         black
 UXTerm*foreground:         white
