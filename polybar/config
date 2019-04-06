@@ -56,8 +56,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = date 
-modules-right = pulseaudio wlan eth battery powermenu
+modules-center = date gmail updates-arch music
+modules-right = pulseaudio battery xkeyboard powermenu
 
 tray-position = right
 tray-padding = 2
@@ -83,19 +83,33 @@ label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
+blacklist-0 = caps lock
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+;format-prefix = " "
+;format-prefix-foreground = #FFFFFF
+;format-prefix-underline = #0a6cf5
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = $0a6cf5
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-foreground = #000000
+label-indicator-background = #FFFFFF
+label-indicator-underline = #0a6cf5
+
+[module/music]
+type = custom/script
+interval = 1
+
+label = %output%
+exec = ~/.config/polybar/music
+click-left = playerctl play-pause
+
+[module/updates-arch]
+type = custom/script
+exec = ~/.config/polybar/arch
+interval = 600
 
 [module/filesystem]
 type = internal/fs
@@ -439,6 +453,12 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail/mail.py --prefix  --color '#be5046'
+tail = true
+click-left = xdg-open https://mail.google.com
 
 [global/wm]
 margin-top = 5
