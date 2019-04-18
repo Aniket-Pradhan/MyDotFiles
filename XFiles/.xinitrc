@@ -55,6 +55,11 @@ xbindkeys
 # setup xss-lock 
 --no-startup-id xss-lock -- ~/.i3/lock
 
+xset +fp /home/major/.local/share/fonts
+xset fp rehash
+
+nm-applet &
+
 #set transparent terminals
 #(sleep 1 && xcompmgr) &
 #devilspie -a &
