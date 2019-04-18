@@ -34,7 +34,7 @@ def print_count(count, is_odd=False):
 def update_count(count_was):
     gmail = discovery.build('gmail', 'v1', credentials=file.Storage(CREDENTIALS_PATH).get())
     labels = gmail.users().labels().get(userId='me', id='INBOX').execute()
-    count = labels['messagesUnread']
+    count = int(labels['messagesUnread'])
     print_count(count)
     if not args.nosound and count_was < count and count > 0:
         subprocess.run(['canberra-gtk-play', '-i', 'message'])

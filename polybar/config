@@ -1,45 +1,27 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;==========================================================
-
 [colors]
-;background = ${xrdb:color0:#222}
-background = #000000
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
+background = #b32f343f
+background-alt = #f72f343f
+foreground = #f3f4f5
+foreground-alt = #f3f4f5
+foreground-dim = #676e7d
 primary = #ffb52a
 secondary = #e60053
-alert = #bd2c40
+alert = #ff6600
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-;radius = 6.0
+height = 34
+offset-x = 0
+offset-y = 0
+;height = 27
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+underline-size = 2
 
-line-size = 3
+line-size = 16
 line-color = #f00
 
 ;border-size = 4
@@ -51,13 +33,15 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = Font Awesome 5:pixelsize=10;1
+font-0 = Font Awesome 5:pixelsize=8;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
-modules-center = date gmail updates-arch music
-modules-right = pulseaudio battery xkeyboard powermenu
+;modules-left = i3
+;modules-center = date updates-arch music
+modules-center = i3
+modules-left = date updates-arch music
+modules-right = volume battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -76,6 +60,33 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume-foreground = ${root.foreground}
+click-right = pavucontrol
+
+format-muted-prefix = "  "
+format-muted-foreground = ${colors.foreground} 
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = "%{A3:pavucontrol&:}─%{A}"
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/xwindow]
 type = internal/xwindow
@@ -100,16 +111,22 @@ label-indicator-underline = #0a6cf5
 
 [module/music]
 type = custom/script
-interval = 1
-
+interval = 0
+format-underline = #20dfdf
+format-foreground = ${colors.foreground}
+format-background = #0d5959
+format-padding = 2
 label = %output%
 exec = ~/.config/polybar/music
 click-left = playerctl play-pause
 
 [module/updates-arch]
 type = custom/script
+label-foreground = #FFFFFF
 exec = ~/.config/polybar/arch
+format-underline = #0a6cf5
 interval = 600
+click-left = notify-send -t 5000 -u critical "$(checkupdates | head -n 10)"
 
 [module/filesystem]
 type = internal/fs
@@ -143,6 +160,28 @@ label-empty-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/theme]
+format-background = ${colors.background}
+format-padding = 2
+format-foreground = ${self.format-underline}
+
+format-connected-background = ${module/theme.format-background}
+format-unconnected-background = ${module/theme.format-background}
+format-mounted-background = ${module/theme.format-background}
+format-unmounted-background = ${module/theme.format-background}
+format-charging-background = ${module/theme.format-background}
+format-discharging-background = ${module/theme.format-background}
+
+format-connected-padding = ${module/theme.format-padding}
+format-unconnected-padding = ${module/theme.format-padding}
+format-mounted-padding = ${module/theme.format-padding}
+format-unmounted-padding = ${module/theme.format-padding}
+format-charging-padding = ${module/theme.format-padding}
+format-discharging-padding = ${module/theme.format-padding}
+
+format-mounted-foreground = ${self.format-mounted-underline}
+format-unmounted-foreground = ${self.format-unmounted-underline
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -152,7 +191,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 3
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -165,7 +204,7 @@ label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 1
+label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -234,6 +273,7 @@ format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
+inherit = module/theme
 type = internal/network
 interface = wlo1
 interval = 3.0
@@ -282,8 +322,12 @@ time = "    %H:%M:%S"
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
+format-underline = #20dfdf
+format-foreground = ${colors.foreground}
+format-background = #0d5959
+
+format-padding = 2
 label = %date% %time%
 
 [module/pulseaudio]
@@ -294,7 +338,7 @@ label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = " "
-label-muted-foreground = #666
+label-muted-foreground = #FF0000
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #0a6cf5
