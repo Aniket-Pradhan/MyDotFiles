@@ -16,7 +16,7 @@ set $mod Mod1
 font pango:monospace 8
 
 # Set the background.
-exec sh ~/.setBack
+exec sh ~/.fehbg
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,7 +33,7 @@ exec sh ~/.setBack
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -137,33 +137,22 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Windows Borders
 
 for_window [class="^.*"] border pixel 0
-#for_window [class="UXTerm"] border pixel 5
-
-#for_window [class="^.*"] set gaps outer 15
-#for_window [class="^.*"] set gaps inner 15
-
-#for_window [class="UXTerm"] set gaps outer 0
-#for_window [class="UXTerm"] set gaps inner 0
-
-gaps inner 15 
+for_window [class="UXTerm"] border pixel 5
+gaps inner 15
 gaps outer 15
-
-#workspace 1 gaps inner 0
-#workspace 1 gaps outer 0
-
 smart_gaps on
-#smart_borders on
+smart_borders on
 
 client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
-client.focused_inactive #ffffff #ffffff #ffffff #ffffff   #ffffff
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #ffffff #ffffff #ffffff #ffffff   #ffffff
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
@@ -192,43 +181,10 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
-
 bindsym $mod+r mode "resize"
-
-# move floating windows with keys
-bindsym $mod+m mode "move" focus floating
-mode "move" {
-    bindsym $mod+Tab focus right
-
-    bindsym Left  move left
-    bindsym Down  move down
-    bindsym Up    move up
-    bindsym Right move right
-
-    bindsym h     move left
-    bindsym j     move down
-    bindsym k     move up
-    bindsym l     move right
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# The side buttons move the window around
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
-# i3lock
-bindsym ctrl+$mod+Return exec --no-startup-id sleep 1 && xset dpms force suspend
-exec --no-startup-id xss-lock -- ~/.i3/lock
-
-# Top Bar
-#bar{
-#	status_command i3blocks 
-#	position top
-#}
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bar {
+        status_command i3status
+}
