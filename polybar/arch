@@ -14,13 +14,14 @@ fi
 
 updates=${updates_arch}+${updates_aur}
 color='#f72f34'
+fontcolor='#000000'
 
 if [ "$updates_arch" -gt 0 ] && [ "$updates_aur" -gt 0 ]; then
-    echo "%{F$color}%{F-} $updates_arch %{F$color}%{F-} $updates_aur"
+    echo "%{F$color}%{F-} %{F$fontcolor}$updates_arch%{F-} %{F$color}%{F-} %{F$fontcolor}$updates_aur%{F-}"
 elif [ "$updates_arch" -gt 0 ]; then
-	echo " $updates_arch"
+	echo " $updates_arch"
 elif [ "$updates_aur" -gt 0 ]; then
-	echo " $updates_aur"
+	echo " $updates_aur"
 else
     echo ""
 fi
