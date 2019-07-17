@@ -33,7 +33,7 @@ exec sh ~/.setBack
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -232,3 +232,6 @@ exec --no-startup-id xss-lock -- ~/.i3/lock
 #}
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+for_window [instance="yakuake"] floating enable
+
+
