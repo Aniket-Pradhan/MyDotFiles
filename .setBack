@@ -1,29 +1,30 @@
 #!/bin/bash
 
-# search_dir=/home/major/Pictures/Wallpapers/
+search_dir=/home/major/Pictures/Wallpapers/
 
-# declare -a files
+declare -a files
 
-# for entry in "$search_dir"*
-# do
-# 	files+=($entry)
-# done
+for entry in "$search_dir"*
+do
+	files+=($entry)
+done
 
-# len=${#files[@]}
+len=${#files[@]}
 
-# random=$(($RANDOM%len))
+random=$(($RANDOM%len))
 
 backgroundColor=242020
 
-declare -a witcherWall
+# declare -a witcherWall
 
-witcherWall=(/home/major/Pictures/Wallpapers/witcher1.png /home/major/Pictures/Wallpapers/witcher2.png /home/major/Pictures/Wallpapers/witcher3.png /home/major/Pictures/Wallpapers/witcher4.png /home/major/Pictures/Wallpapers/witcher5.png /home/major/Pictures/Wallpapers/galaxy.png /home/major/Pictures/WallpapersLock/witcher.png /home/major/Pictures/WallpapersLock/witcher1.png /home/major/Pictures/WallpapersLock/arch1.png)
+# witcherWall=(/home/major/Pictures/Wallpapers/witcher1.png /home/major/Pictures/Wallpapers/witcher2.png /home/major/Pictures/Wallpapers/witcher3.png /home/major/Pictures/Wallpapers/witcher4.png /home/major/Pictures/Wallpapers/witcher5.png /home/major/Pictures/Wallpapers/galaxy.png /home/major/Pictures/WallpapersLock/witcher.png /home/major/Pictures/WallpapersLock/witcher1.png /home/major/Pictures/WallpapersLock/arch1.png)
 
-lenny=${#witcherWall[@]}
+lenny=${#files[@]}
 random=$(($RANDOM%lenny))
 
-feh --bg-scale ${witcherWall[$random]}
-wal -i ${witcherWall[$random]} -n -q
-# feh --bg-scale ${files[$random]}
-#feh --bg-scale ~/Pictures/Wallpapers/bark.png
-#wal -i ~/Pictures/Wallpapers/bark.png -n -q -b $backgroundColor
+echo ${files[$random]}
+
+feh --bg-scale ${files[$random]}
+# wal -i ${files[$random]} -n -q -b $backgroundColor
+wal -i ${files[$random]} -n -q
+
