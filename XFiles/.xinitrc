@@ -52,6 +52,9 @@ fi
 # set the key bindings
 xbindkeys
 
+# Start compton!
+compton &
+
 # setup xss-lock 
 --no-startup-id xss-lock -- ~/.i3/lock
 

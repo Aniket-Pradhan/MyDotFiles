@@ -1,27 +1,31 @@
+Xcursor.size: 8
+
 !! Appearance
-urxvt.termName: rxvt-unicode
-urxvt.scrollBar: false
-!urxvt.background: black
-!urxvt.foreground: gray
+URxvt.termName: rxvt-unicode
+URxvt.scrollBar: false
+!URxvt.background: black
+!URxvt.foreground: gray
 
 !! Fonts
-urxvt.font: xft:DejaVu Sans Mono:pixelsize=12
-urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=12:weight=bold
-urxvt.letterSpace: -1
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
+! URxvt.font: xft:DejaVu Sans Mono:style=italic:pixelsize=12
+! URxvt.font: xft:Input Mono Narrow:style=italic:pixelsize=12
+URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=12:weight=bold
+URxvt.letterSpace: -1
 
 !! Larger history limit
-urxvt.saveLines: 10000
+URxvt.saveLines: 10000
 
 !! A man needs his borders
 URxvt.internalBorder:  20
 
 !! Perl extensions
 !! Install resize-font from AUR
-urxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,matcher,resize-font
 
 !! Open urls in browser with a single Click
-urxvt.urlLauncher: /usr/bin/chromium
-urxvt.matcher.button: 1
+URxvt.urlLauncher: /usr/bin/chromium
+URxvt.matcher.button: 1
 
 !! Change font size on Control-Plus/Minus
 URxvt.keysym.C-Down:  resize-font:smaller
@@ -44,12 +48,12 @@ URxvt.keysym.Control-Right:  \033[1;5C
 
 !! Haha
 !! Yeah, I am one of those, who use these keys in Vim :-(
-!urxvt.keysym.Home:          \033[1~
-!urxvt.keysym.End:           \033[4~
-!urxvt.keysym.Control-Up:    \033[1;5A
-!urxvt.keysym.Control-Down:  \033[1;5B
-!urxvt.keysym.Control-Left:  \033[1;5D
-!urxvt.keysym.Control-Right: \033[1;5C
+!URxvt.keysym.Home:          \033[1~
+!URxvt.keysym.End:           \033[4~
+!URxvt.keysym.Control-Up:    \033[1;5A
+!URxvt.keysym.Control-Down:  \033[1;5B
+!URxvt.keysym.Control-Left:  \033[1;5D
+!URxvt.keysym.Control-Right: \033[1;5C
 
 !! Tango color theme
 !! Strange - it matches tango from gnome-terminal, but looks different
