@@ -16,6 +16,13 @@ alias home='sudo netctl start Home'
 alias iiitStop='sudo netctl stop IIIT'
 alias homeStop='sudo netctl stop Home'
 alias gitstore='git config credential.helper store'
+
+alias connprav='ssh pravesh@192.168.21.191'
+alias hpcani='ssh aniket17133@hpc.iiitd.edu.in'
+alias hpcnis='ssh nishant15151@hpc.iiitd.edu.in'
+alias hpcabh='ssh abhijit@hpc.iiitd.edu.in'
+alias hpcana='ssh anand@hpc.iiitd.edu.in'
+
 alias netStart='sudo systemctl start NetworkManager.service'
 alias forti='~/.forti'
 alias startenv='source ./venv/bin/activate'
@@ -46,9 +53,20 @@ LANG=en_US.UTF-8
 LC_CTYPE=en_US.UTF-8
 XDG_CONFIG_HOME=~/.config
 
-. /opt/miniconda3/etc/profile.d/conda.sh
+#. /opt/miniconda3/etc/profile.d/conda.sh
 
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
 #. /usr/share/powerline/bindings/bash/powerline.sh
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
